@@ -1,30 +1,36 @@
 <?php
 namespace wbb\system\event\listener;
-use wcf\system\event\IEventListener;
 use wcf\data\jCoins\statement\StatementAction;
+use wcf\system\event\IEventListener;
 
 /**
- * add jcoins on create a thread
+ * Handles jCoins on post creation.
  * 
- * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @author	Joshua RÃ¼sweg
+ * @package	de.joshsboard.wbbjoins
  */
 class JCoinsCreatePostListener implements IEventListener {
 	/**
-	 * @see	\wcf\system\event\IEventListener::execute()
+	 * Statement action
+	 * @var wcf\data\jCoins\statement\StatementAction
+	 */
+	public $statementAction = null;
+	
+	/**
+	 * @see	wcf\system\event\IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
 		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0) return;
-		if ($eventObj->getActionName() != 'create') return; 
+		if ($eventObj->getActionName() !== 'triggerPublication') return;
 		
 		$this->statementAction = new StatementAction(array(), 'create', array(
 			'data' => array(
-				'reason' => 'wcf.jcoins.statement.postadd.recive',
-				'sum' => JCOINS_RECEIVECOINS_CREATEPOST, 
-                        ), 
-                        'changeBalance' => 1
+				'reason' => 'wcf.jcoins.statement.postadd.receive',
+				'sum' => JCOINS_RECEIVECOINS_CREATEPOST,
+			),
+			'changeBalance' => 1
 		));
-                $this->statementAction->validateAction();
+		$this->statementAction->validateAction();
 		$this->statementAction->executeAction();
 	}
 }

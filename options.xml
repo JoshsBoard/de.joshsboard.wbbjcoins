@@ -7,7 +7,7 @@
 				<optiontype>integer</optiontype>
 				<defaultvalue>25</defaultvalue>
 			</option>
-                        <option name="jcoins_receivecoins_createpost">
+			<option name="jcoins_receivecoins_createpost">
 				<categoryname>jcoins.receiveCoins</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
