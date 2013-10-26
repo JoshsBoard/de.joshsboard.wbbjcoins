@@ -23,6 +23,9 @@ class JCoinsCreatePostListener implements IEventListener {
 		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0) return;
 		if ($eventObj->getActionName() !== 'triggerPublication') return;
 		
+                $parameters = $eventObj->getParameters();
+                if(isset($parameters['isFirstPost'])) return;
+                
 		$this->statementAction = new StatementAction(array(), 'create', array(
 			'data' => array(
 				'reason' => 'wcf.jcoins.statement.postadd.receive',
