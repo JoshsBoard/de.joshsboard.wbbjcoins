@@ -23,5 +23,6 @@
 		<instruction type="file" application="wbb">files.tar</instruction>
 		<instruction type="option">options.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
+		<instruction type="language">lang/*.xml</instruction>
 	</instructions>
 </package>
