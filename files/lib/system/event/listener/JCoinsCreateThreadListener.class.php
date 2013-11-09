@@ -1,5 +1,7 @@
 <?php
 namespace wbb\system\event\listener;
+
+use wbb\data\thread\Thread;
 use wcf\data\jCoins\statement\StatementAction;
 use wcf\system\event\IEventListener;
 
@@ -10,21 +12,56 @@ use wcf\system\event\IEventListener;
  * @package	de.joshsboard.wbbjoins
  */
 class JCoinsCreateThreadListener implements IEventListener {
-	/**
-	 * @see	wcf\system\event\IEventListener::execute()
-	 */
-	public function execute($eventObj, $className, $eventName) {
-		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATETHREAD == 0) return;
-		if ($eventObj->getActionName() != 'create') return;
-		
-		$this->statementAction = new StatementAction(array(), 'create', array(
-			'data' => array(
-				'reason' => 'wcf.jcoins.statement.threadadd.receive',
-				'sum' => JCOINS_RECEIVECOINS_CREATETHREAD,
-			),
-			'changeBalance' => 1
-		));
-		$this->statementAction->validateAction();
-		$this->statementAction->executeAction();
-	}
+
+    /**
+     * @see	IEventListener::execute()
+     */
+    public function execute($eventObj, $className, $eventName) {
+        if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATETHREAD == 0) return;
+
+        $return = $eventObj->getReturnValues();
+        $actionName = $eventObj->getActionName();
+        $parameters = $eventObj->getParameters();
+
+        switch ($actionName) {
+            case 'create':
+                $thread = $return['returnValues'];
+
+                if (!$thread->isDisabled) {
+                    $this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD);
+                }
+                break;
+            case 'enable':                
+                $threadDatas = $return['returnValues']['threadData'];
+
+                foreach ($threadDatas as $threadID => $data) {
+                    $thread = new Thread($threadID);
+
+                    $this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD);
+                }
+                break;
+            case 'disable':                
+                $threadDatas = $return['returnValues']['threadData'];
+
+                foreach ($threadDatas as $threadID => $data) {
+                    $thread = new Thread($threadID);
+
+                    $this->create($thread->userID, 'wcf.jcoins.statement.threadadd.revoke', -JCOINS_RECEIVECOINS_CREATETHREAD);
+                }
+                break;
+        }
+    }
+
+    protected function create($userID, $reason, $sum) {
+        $this->statementAction = new StatementAction(array(), 'create', array(
+            'data' => array(
+                'reason' => $reason,
+                'sum' => $sum,
+                'userID' => $userID
+            ),
+            'changeBalance' => 1
+        ));
+        $this->statementAction->validateAction();
+        $this->statementAction->executeAction();
+    }
 }

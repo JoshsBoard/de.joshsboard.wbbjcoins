@@ -11,6 +11,8 @@
     <category name="wcf.jcoins">        
         <!-- STATEMENTS -->
         <item name="wcf.jcoins.statement.postadd.receive"><![CDATA[Für das Antworten in einem Thema]]></item>
+        <item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Ein Post von Dir wurde deaktiviert]]></item>
         <item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[Für das erstellen eines Thema]]></item>
+        <item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Ein Thema von Dir wurde deaktiviert]]></item>
     </category>
 </language>
