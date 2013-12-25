@@ -3,12 +3,12 @@
 	<import>
 		<options>
 			<option name="jcoins_receivecoins_createthread">
-				<categoryname>jcoins.receiveCoins</categoryname>
+				<categoryname>jcoins.receivecoins</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>25</defaultvalue>
 			</option>
 			<option name="jcoins_receivecoins_createpost">
-				<categoryname>jcoins.receiveCoins</categoryname>
+				<categoryname>jcoins.receivecoins</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
 			</option>
