@@ -2,7 +2,7 @@
 namespace wbb\system\event\listener;
 
 use wbb\data\post\Post;
-use wcf\data\jCoins\statement\StatementAction;
+use wcf\data\user\jcoins\statement\UserJcoinsStatementAction;
 use wcf\system\event\IEventListener;
 
 /**
@@ -12,69 +12,100 @@ use wcf\system\event\IEventListener;
  * @package	de.joshsboard.wbbjoins
  */
 class JCoinsCreatePostListener implements IEventListener {
-    /**
-     * Statement action
-     * @var StatementAction
-     */
-    public $statementAction = null;
 
-    /**
-     * @see	IEventListener::execute()
-     */
-    public function execute($eventObj, $className, $eventName) {
-        if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0) return;
+	/**
+	 * Statement action
+	 * @var StatementAction
+	 */
+	public $statementAction = null;
 
-        $return = $eventObj->getReturnValues();
-        $actionName = $eventObj->getActionName();
-        $parameters = $eventObj->getParameters();
-        
-        switch ($actionName) {
-            case 'create':
-                if (isset($parameters['isFirstPost'])) return;
-                
-                $post = $return['returnValues'];
-                
-                if (!$post->isDisabled) {
-                    $this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
-                }                
-                break;
-            case 'enable':                
-                $postDatas = $return['returnValues']['postData'];
-                
-                foreach ($postDatas as $postID => $data) {
-                    $post = new Post($postID);
-                    $thread = $post->getThread();
-                    
-                    if ($post->postID != $thread->firstPostID) {
-                        $this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
-                    }
-                }
-                break;
-            case 'disable':                
-                $postDatas = $return['returnValues']['postData'];    
-                
-                foreach ($postDatas as $postID => $data) {
-                    $post = new Post($postID);
-                    $thread = $post->getThread();
-                    
-                    if ($post->postID != $thread->firstPostID) {
-                        $this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -JCOINS_RECEIVECOINS_CREATEPOST);
-                    }
-                }
-                break;
-        }
-    }
+	/**
+	 * @see	IEventListener::execute()
+	 */
+	public function execute($eventObj, $className, $eventName) {
+		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0)
+			return;
 
-    protected function create($userID, $reason, $sum) {
-        $this->statementAction = new StatementAction(array(), 'create', array(
-            'data' => array(
-                'reason' => $reason,
-                'sum' => $sum,
-                'userID' => $userID
-            ),
-            'changeBalance' => 1
-        ));
-        $this->statementAction->validateAction();
-        $this->statementAction->executeAction();
-    }
+		$return = $eventObj->getReturnValues();
+		$actionName = $eventObj->getActionName();
+		$parameters = $eventObj->getParameters();
+
+		switch ($actionName) {
+			case 'create':
+				if (isset($parameters['isFirstPost'])) return;
+
+				$post = $return['returnValues'];
+
+				if (!$post->isDisabled) {
+					$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
+				}
+				break;
+				
+			case 'enable':
+				$postDatas = $return['returnValues']['postData'];
+
+				foreach ($postDatas as $postID => $data) {
+					$post = new Post($postID);
+					$thread = $post->getThread();
+
+					if ($post->postID != $thread->firstPostID) {
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
+					}
+				}
+				break;
+				
+			case 'disable':
+				$postDatas = $return['returnValues']['postData'];
+
+				foreach ($postDatas as $postID => $data) {
+					$post = new Post($postID);
+					$thread = $post->getThread();
+
+					if ($post->postID != $thread->firstPostID) {
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -JCOINS_RECEIVECOINS_CREATEPOST);
+					}
+				}
+				break;
+				
+			case 'trash':
+				$postDatas = $return['returnValues']['postData'];
+
+				foreach ($postDatas as $postID => $data) {
+					$post = new Post($postID);
+					$thread = $post->getThread();
+
+					if ($post->postID != $thread->firstPostID) {
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.delete', JCOINS_RECEIVECOINS_DELETEPOST);
+					}
+				}
+				break; 
+			
+			case 'restore':
+				$postDatas = $return['returnValues']['postData'];
+
+				foreach ($postDatas as $postID => $data) {
+					$post = new Post($postID);
+					$thread = $post->getThread();
+
+					if ($post->postID != $thread->firstPostID) {
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.restore', JCOINS_RECEIVECOINS_DELETEPOST * -1);
+					}
+				}
+				break; 
+		}
+	}
+
+	protected function create($userID, $reason, $sum) {
+		$this->statementAction = new UserJcoinsStatementAction(array(), 'create', array(
+		    'data' => array(
+			'reason' => $reason,
+			'sum' => $sum,
+			'userID' => $userID
+		    ),
+		    'changeBalance' => 1
+		));
+		$this->statementAction->validateAction();
+		$this->statementAction->executeAction();
+	}
+
 }

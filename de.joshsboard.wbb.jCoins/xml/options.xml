@@ -7,10 +7,20 @@
 				<optiontype>integer</optiontype>
 				<defaultvalue>25</defaultvalue>
 			</option>
+			<option name="jcoins_receivecoins_deletethread">
+				<categoryname>jcoins.receivecoins</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-25</defaultvalue>
+			</option>
 			<option name="jcoins_receivecoins_createpost">
 				<categoryname>jcoins.receivecoins</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+			</option>
+			<option name="jcoins_receivecoins_deletepost">
+				<categoryname>jcoins.receivecoins</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-5</defaultvalue>
 			</option>
 		</options>
 	</import>
