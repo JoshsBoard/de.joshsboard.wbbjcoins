@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
-    <!-- ACP OPTIONS -->
-    <category name="wcf.acp.option">
-        <item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[jCoins für neues Thema]]></item>
-        <item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er einen neues Thema im Forum erstellt?]]></item>
-        <item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins für Antworten]]></item>
-        <item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er auf ein Thema antwortet?]]></item>
-    </category>
+	<!-- ACP OPTIONS -->
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.jcoins.receivecoins.wbb"><![CDATA[Woltlab Burning Board]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[jCoins für neues Thema]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er einen neues Thema im Forum erstellt?]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[jCoins für gelöschte Themen]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn sein Thema gelöscht wird?]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins für Antworten]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er auf ein Thema antwortet?]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins für gelöschte Antworten]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn sein Beitrag gelöscht wird?]]></item>
+	</category>
     
-    <category name="wcf.jcoins">        
-        <!-- STATEMENTS -->
-        <item name="wcf.jcoins.statement.postadd.receive"><![CDATA[Du hast eine Antwort in einem Thema erstellt]]></item>
-        <item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Ein Post von Dir wurde deaktiviert]]></item>
-        <item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[Du hast ein Thema erstellt]]></item>
-        <item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Ein Thema von Dir wurde deaktiviert]]></item>
+	<category name="wcf.jcoins">        
+		<!-- STATEMENTS -->
+		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[Du hast eine Antwort in einem Thema erstellt]]></item>
+		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Ein Post von dir wurde deaktiviert]]></item>
+		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[Ein Beitrag von dir wurde wiederhergestellt]]></item>
+		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[Ein Beitrag von dir wurde gelöscht]]></item>
+		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[Du hast ein Thema erstellt]]></item>
+		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Ein Thema von dir wurde deaktiviert]]></item>
+		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Ein Thema von dir wurde wiederhergestellt]]></item>
+		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Ein Thema von dir wurde gelöscht]]></item>
     </category>
 </language>

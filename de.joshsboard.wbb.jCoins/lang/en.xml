@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en" languagename="English" countrycode="en">
+	<!-- ACP OPTIONS -->
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.jcoins.receivecoins.wbb"><![CDATA[Woltlab Burning Board]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[jCoins for new topics]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[How many jCoins shall the user get, if he starts a topic?]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[jCoins for trashed topics]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[How many jCoins shall the user get, if someone trashs his topic?]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins for postings]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many jCoins shall the user get, if he replies in a topic.]]></item>
+		
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins for trashed postings]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many jCoins shall the user get, if someone delete his posting.]]></item>
+	</category>
+    
+	<category name="wcf.jcoins">        
+		<!-- STATEMENTS -->
+		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[You have created a posting]]></item>
+		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Someone has disabled your posting]]></item>
+		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[Someone has restored your posting]]></item>
+		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[Someone has trashed your posting]]></item>
+		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[You have created a topic]]></item>
+		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Someone has disabled your topic]]></item>
+		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Someone has restored your topic]]></item>
+		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Someone has trashed your topic]]></item>
+    </category>
+</language>
