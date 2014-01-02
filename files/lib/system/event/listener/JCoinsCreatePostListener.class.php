@@ -31,6 +31,7 @@ class JCoinsCreatePostListener implements IEventListener {
 		$parameters = $eventObj->getParameters();
 
 		switch ($actionName) {
+			case 'quickReply':
 			case 'create':
 				if (isset($parameters['isFirstPost'])) return;
 
