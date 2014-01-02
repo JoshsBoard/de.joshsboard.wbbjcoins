@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="de.joshsboard.wbb.jCoins" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
     <packageinformation>
-        <packagename>jCoins - Burning Board</packagename>
-        <packagename language="de">jCoins - Burning Board</packagename>
-        <packagedescription>Integrates the jCoins in the Burning Board.</packagedescription>
-        <packagedescription language="de">Integriert die jCoins in das Burning Board.</packagedescription>
+        <packagename><![CDATA[jCoins - Burning Board]]></packagename>
+        <packagename language="de"><![CDATA[jCoins - Burning Board]]></packagename>
+        <packagedescription><![CDATA[Integrates the jCoins in the Burning Board.]]></packagedescription>
+        <packagedescription language="de"><![CDATA[Integriert die jCoins in das Burning Board.]]></packagedescription>
         <version>1.0.0</version>
-        <date>2013-05-31</date>
+        <date>2013-12-29</date>
     </packageinformation>
 	
     <authorinformation>
-        <author>Joshua Ruesweg</author>
-        <authorurl>http://www.joshsboard.de/</authorurl>
+        <author><![CDATA[Joshua Rüsweg]]></author>
+	<authorurl><![CDATA[http://www.joshsboard.de/]]></authorurl>
     </authorinformation>
 	
     <requiredpackages>
         <requiredpackage minversion="4.0.0 Beta 11">com.woltlab.wbb</requiredpackage>
-        <requiredpackage minversion="1.0.0">de.joshsboard.jCoins</requiredpackage>
+        <requiredpackage minversion="1.0.1">de.joshsboard.jCoins</requiredpackage>
     </requiredpackages>
 	
     <instructions type="install">
