@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
 	<import>
+		<categories>
+			<category name="jcoins.receivecoins.wbb">
+					<parent>jcoins.receivecoins</parent>
+			</category>
+		</categories>
 		<options>
 			<option name="jcoins_receivecoins_createthread">
-				<categoryname>jcoins.receivecoins</categoryname>
+				<categoryname>jcoins.receivecoins.wbb</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>25</defaultvalue>
 			</option>
 			<option name="jcoins_receivecoins_deletethread">
-				<categoryname>jcoins.receivecoins</categoryname>
+				<categoryname>jcoins.receivecoins.wbb</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>-25</defaultvalue>
 			</option>
 			<option name="jcoins_receivecoins_createpost">
-				<categoryname>jcoins.receivecoins</categoryname>
+				<categoryname>jcoins.receivecoins.wbb</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
 			</option>
 			<option name="jcoins_receivecoins_deletepost">
-				<categoryname>jcoins.receivecoins</categoryname>
+				<categoryname>jcoins.receivecoins.wbb</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>-5</defaultvalue>
 			</option>
