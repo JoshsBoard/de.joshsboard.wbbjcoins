@@ -2,7 +2,7 @@
 namespace wbb\system\event\listener;
 
 use wbb\data\thread\Thread;
-use wcf\data\jcoins\statement\UserJcoinsStatementAction;
+use wcf\data\user\jcoins\statement\UserJcoinsStatementAction;
 use wcf\system\event\IEventListener;
 
 /**
