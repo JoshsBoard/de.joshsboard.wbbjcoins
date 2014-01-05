@@ -13,8 +13,8 @@
 		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins for postings]]></item>
 		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many jCoins shall the user get, if he replies in a topic.]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins for trashed postings]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many jCoins shall the user get, if someone delete his posting.]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost"><![CDATA[jCoins for trashed postings]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost.description"><![CDATA[How many jCoins shall the user get, if someone delete his posting.]]></item>
 	</category>
     
 	<category name="wcf.jcoins">        
