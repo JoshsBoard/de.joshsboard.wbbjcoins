@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="de.joshsboard.wbb.jCoins" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
-    <packageinformation>
-        <packagename><![CDATA[jCoins - Burning Board]]></packagename>
-        <packagename language="de"><![CDATA[jCoins - Burning Board]]></packagename>
-        <packagedescription><![CDATA[Integrates the jCoins in the Burning Board.]]></packagedescription>
-        <packagedescription language="de"><![CDATA[Integriert die jCoins in das Burning Board.]]></packagedescription>
-        <version>1.0.0</version>
-        <date>2013-12-29</date>
-    </packageinformation>
+<package name="de.joshsboard.jcoinswbb" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename><![CDATA[jCoins - Burning Board]]></packagename>
+		<packagename language="de"><![CDATA[jCoins - Burning Board]]></packagename>
+		<packagedescription><![CDATA[Integrates the jCoins in the Burning Board.]]></packagedescription>
+		<packagedescription language="de"><![CDATA[Integriert die jCoins in das Burning Board.]]></packagedescription>
+		<version>1.0.0</version>
+		<date>2013-01-05</date>
+	</packageinformation>
 	
-    <authorinformation>
-        <author><![CDATA[Joshua Rüsweg]]></author>
-	<authorurl><![CDATA[http://www.joshsboard.de/]]></authorurl>
-    </authorinformation>
+	<authorinformation>
+		<author><![CDATA[Joshua Rüsweg]]></author>
+		<authorurl><![CDATA[http://www.joshsboard.de/]]></authorurl>
+	</authorinformation>
 	
-    <requiredpackages>
-        <requiredpackage minversion="4.0.0 Beta 11">com.woltlab.wbb</requiredpackage>
-        <requiredpackage minversion="1.0.1">de.joshsboard.jCoins</requiredpackage>
-    </requiredpackages>
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0 RC 3">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="4.0.0 Beta 11">com.woltlab.wbb</requiredpackage>
+		<requiredpackage minversion="1.0.2">de.joshsboard.jCoins</requiredpackage>
+	</requiredpackages>
 	
-    <instructions type="install">
-        <!-- files -->
-        <instruction type="file" application="wbb">files/files.tar</instruction>
+	<instructions type="install">
+		<!-- files -->
+		<instruction type="file" application="wbb">files/files.tar</instruction>
                 
-        <!-- xml -->
-        <instruction type="option">xml/options.xml</instruction>
-        <instruction type="eventListener">xml/eventListener.xml</instruction>
+		<!-- xml -->
+		<instruction type="option">xml/options.xml</instruction>
+		<instruction type="eventListener">xml/eventListener.xml</instruction>
                 
-        <!-- lng -->
-        <instruction type="language">lang/*.xml</instruction>
-    </instructions>
+		<!-- lng -->
+		<instruction type="language">lang/*.xml</instruction>
+	</instructions>
 </package>
