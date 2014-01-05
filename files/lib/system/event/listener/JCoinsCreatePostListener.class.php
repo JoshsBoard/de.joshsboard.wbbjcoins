@@ -35,10 +35,9 @@ class JCoinsCreatePostListener implements IEventListener {
 			case 'create':
 				if (isset($parameters['isFirstPost'])) return;
 
-				$post = $return['returnValues'];
-
-				if (!$post->isDisabled) {
-					$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
+                                
+				if (!isset($parameters['data']['isDisabled'])) {
+					$this->create($parameters['data']['userID'], 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
 				}
 				break;
 				
