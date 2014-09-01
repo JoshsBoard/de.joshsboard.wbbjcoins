@@ -50,7 +50,7 @@ class JCoinsCreatePostListener implements IEventListener {
 					$thread = $post->getThread();
 
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST, $post->getLink(), $post->getTitle());
 					}
 				}
 				break;
@@ -63,7 +63,7 @@ class JCoinsCreatePostListener implements IEventListener {
 					$thread = $post->getThread();
 
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -JCOINS_RECEIVECOINS_CREATEPOST);
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -JCOINS_RECEIVECOINS_CREATEPOST, $post->getLink(), $post->getTitle());
 					}
 				}
 				break;
@@ -76,7 +76,7 @@ class JCoinsCreatePostListener implements IEventListener {
 					$thread = $post->getThread();
 
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.delete', JCOINS_RECEIVECOINS_DELETEPOST);
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.delete', JCOINS_RECEIVECOINS_DELETEPOST, $post->getLink(), $post->getTitle());
 					}
 				}
 				break; 
@@ -89,24 +89,25 @@ class JCoinsCreatePostListener implements IEventListener {
 					$thread = $post->getThread();
 
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.restore', JCOINS_RECEIVECOINS_DELETEPOST * -1);
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.restore', JCOINS_RECEIVECOINS_DELETEPOST * -1, $post->getLink(), $post->getTitle());
 					}
 				}
 				break; 
 		}
 	}
 
-	protected function create($userID, $reason, $sum) {
+	protected function create($userID, $reason, $sum, $link = '', $title = '') {
 		$this->statementAction = new UserJcoinsStatementAction(array(), 'create', array(
 		    'data' => array(
 			'reason' => $reason,
 			'sum' => $sum,
-			'userID' => $userID
+			'userID' => $userID, 
+			'additionalData' => array('title' => $title), 
+			'link' => $link
 		    ),
 		    'changeBalance' => 1
 		));
 		$this->statementAction->validateAction();
 		$this->statementAction->executeAction();
 	}
-
 }

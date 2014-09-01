@@ -29,7 +29,7 @@ class JCoinsCreateThreadListener implements IEventListener {
 				$thread = $return['returnValues'];
 
 				if (!$thread->isDisabled) {
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD);
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 			
@@ -39,7 +39,7 @@ class JCoinsCreateThreadListener implements IEventListener {
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
 
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.delete', JCOINS_RECEIVECOINS_DELETETHREAD);
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.delete', JCOINS_RECEIVECOINS_DELETETHREAD, $thread->getLink(), $thread->getTitle());
 				}
 				break; 
 			
@@ -49,7 +49,7 @@ class JCoinsCreateThreadListener implements IEventListener {
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
 
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.restore', -JCOINS_RECEIVECOINS_DELETETHREAD);
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.restore', -JCOINS_RECEIVECOINS_DELETETHREAD, $thread->getLink(), $thread->getTitle());
 				}
 				break; 
 			
@@ -59,7 +59,7 @@ class JCoinsCreateThreadListener implements IEventListener {
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
 
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD);
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 				
@@ -70,18 +70,20 @@ class JCoinsCreateThreadListener implements IEventListener {
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
 
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.revoke', -JCOINS_RECEIVECOINS_CREATETHREAD);
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.revoke', -JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 		}
 	}
 
-	protected function create($userID, $reason, $sum) {
+	protected function create($userID, $reason, $sum, $link = '', $title = '') {
 		$this->statementAction = new UserJcoinsStatementAction(array(), 'create', array(
 		    'data' => array(
 			'reason' => $reason,
 			'sum' => $sum,
-			'userID' => $userID
+			'userID' => $userID, 
+			'additionalData' => array('title' => $title), 
+			'link' => $link
 		    ),
 		    'changeBalance' => 1
 		));
