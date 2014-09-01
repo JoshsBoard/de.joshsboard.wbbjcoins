@@ -4,11 +4,12 @@ namespace wbb\system\event\listener;
 use wbb\data\post\Post;
 use wcf\data\user\jcoins\statement\UserJcoinsStatementAction;
 use wcf\system\event\IEventListener;
+use wcf\system\WCF; 
 
 /**
  * Handles jCoins on post creation.
  * 
- * @author	Joshua RÃ¼sweg
+ * @author	Joshua Rüsweg
  * @package	de.joshsboard.wbbjoins
  */
 class JCoinsCreatePostListener implements IEventListener {
@@ -23,7 +24,7 @@ class JCoinsCreatePostListener implements IEventListener {
 	 * @see	IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
-		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0)
+		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0 || WCF::getSession()->userID == 0)
 			return;
 
 		$return = $eventObj->getReturnValues();
