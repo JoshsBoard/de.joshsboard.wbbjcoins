@@ -19,13 +19,13 @@
     
 	<category name="wcf.jcoins">        
 		<!-- STATEMENTS -->
-		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[You have created a posting]]></item>
-		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Someone has disabled your posting]]></item>
-		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[Someone has restored your posting]]></item>
-		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[Someone has trashed your posting]]></item>
-		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[You have created a topic]]></item>
-		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Someone has disabled your topic]]></item>
-		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Someone has restored your topic]]></item>
-		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Someone has trashed your topic]]></item>
+		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[You have created {if $title|isset}the posting „{$title}“{else}a posting{/if}.]]></item>
+		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Someone has disabled your posting{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[Someone has restored your posting{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[Someone has trashed your posting{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[You have created {if $title|isset}the{else}a{/if} topic{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Someone has disabled your topic{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Someone has restored your topic{if $title|isset} „{$title}“{/if}.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Someone has trashed your topic{if $title|isset} „{$title}“{/if}.]]></item>
     </category>
 </language>

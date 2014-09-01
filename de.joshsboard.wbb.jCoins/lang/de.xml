@@ -19,13 +19,13 @@
     
 	<category name="wcf.jcoins">        
 		<!-- STATEMENTS -->
-		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[Du hast eine Antwort in einem Thema erstellt]]></item>
-		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[Ein Post von dir wurde deaktiviert]]></item>
-		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[Ein Beitrag von dir wurde wiederhergestellt]]></item>
-		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[Ein Beitrag von dir wurde gelöscht]]></item>
-		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[Du hast ein Thema erstellt]]></item>
-		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Ein Thema von dir wurde deaktiviert]]></item>
-		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Ein Thema von dir wurde wiederhergestellt]]></item>
-		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Ein Thema von dir wurde gelöscht]]></item>
+		<item name="wcf.jcoins.statement.postadd.receive"><![CDATA[Sie haben {if $title|isset}die Antwort „{$title}“{else}eine Antwort{/if} in einem Thema erstellt]]></item>
+		<item name="wcf.jcoins.statement.postadd.revoke"><![CDATA[{if $title|isset}Der Beitrag „{$title}“{else}Ein Beitrag{/if} von Ihnen wurde deaktiviert.]]></item>
+		<item name="wcf.jcoins.statement.postadd.restore"><![CDATA[{if $title|isset}Der Beitrag „{$title}“{else}Ein Beitrag{/if} von Ihnen wurde wiederhergestellt.]]></item>
+		<item name="wcf.jcoins.statement.postadd.delete"><![CDATA[{if $title|isset}Der Beitrag „{$title}“{else}Ein Beitrag{/if} von Ihnen wurde gelöscht.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.receive"><![CDATA[Sie haben {if $title|isset}das Thema „{$title}“{else}ein Thema{/if} erstellt.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde deaktiviert.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde wiederhergestellt.]]></item>
+		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde gelöscht.]]></item>
     </category>
 </language>

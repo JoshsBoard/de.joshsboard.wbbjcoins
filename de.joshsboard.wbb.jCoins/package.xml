@@ -5,7 +5,7 @@
 		<packagename language="de"><![CDATA[jCoins - Burning Board]]></packagename>
 		<packagedescription><![CDATA[Integrates the jCoins in the Burning Board.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Integriert die jCoins in das Burning Board.]]></packagedescription>
-		<version>1.0.0</version>
+		<version>1.1.0 Beta 1</version>
 		<date>2013-01-05</date>
 	</packageinformation>
 	
@@ -17,7 +17,7 @@
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 RC 3">com.woltlab.wcf</requiredpackage>
 		<requiredpackage minversion="4.0.0 Beta 11">com.woltlab.wbb</requiredpackage>
-		<requiredpackage minversion="1.0.2">de.joshsboard.jCoins</requiredpackage>
+		<requiredpackage minversion="1.1.0 Beta 2">de.joshsboard.jCoins</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">
