@@ -55,7 +55,7 @@ class JCoinsBoardAddEditListener implements IEventListener {
 				break; 
 			
 			case 'assignVariables': 
-				WCF::getTPL()->assign(array(
+				\wcf\system\WCF::getTPL()->assign(array(
 					'customJCoins' => $eventObj->customJCoins, 
 					'customJCoinsCreateThread' => $eventObj->customJCoinsCreateThread, 
 					'customJCoinsCreatePost' => $eventObj->customJCoinsCreatePost, 

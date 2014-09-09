@@ -5,7 +5,7 @@
 			<environment>admin</environment>
 			<templatename>boardAdd</templatename>
 			<eventname>generalFieldsets</eventname>
-			<templatecode><![CDATA[{include file='__jcoinsBoardOption'}]]></templatecode>
+			<templatecode><![CDATA[{include file='__jcoinsBoardOption' application='wbb'}]]></templatecode>
 		</templatelistener>
 	</import>
 </data>

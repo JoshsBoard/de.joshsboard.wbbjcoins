@@ -24,9 +24,24 @@
 		<!-- files -->
 		<instruction type="file" application="wbb">files.tar</instruction>
                 <instruction type="sql">install.sql</instruction>
+		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
 		
 		<!-- xml -->
 		<instruction type="option">options.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
+		
+		<!-- lng -->
+		<instruction type="language">lang/*.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.1.0">
+		<!-- files -->
+		<instruction type="file" application="wbb">files.tar</instruction>
+                <instruction type="sql">install.sql</instruction>
+		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
+		
+		<!-- xml -->
 		<instruction type="eventListener">eventListener.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		

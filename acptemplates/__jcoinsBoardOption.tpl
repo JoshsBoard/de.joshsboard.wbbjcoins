@@ -55,6 +55,14 @@
 			}
 
 			toogleJCoinsContainer({@$customJCoins});
+			
+			$('#customJCoins').change(function() {
+				if ($('#customJCoins:checked').val() == 1) {
+					toogleJCoinsContainer(true);
+				} else {
+					toogleJCoinsContainer(false);
+				}
+			}); 
 		});
 		//]]>
 	</script>
