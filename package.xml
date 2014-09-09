@@ -35,7 +35,7 @@
 		<instruction type="language">lang/*.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.1.0">
+	<instructions type="update" fromversion="1.0.0">
 		<!-- files -->
 		<instruction type="file" application="wbb">files.tar</instruction>
                 <instruction type="sql">install.sql</instruction>
