@@ -56,6 +56,10 @@ class JCoinsCreatePostListener implements IEventListener {
 					
 					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreatePost : JCOINS_RECEIVECOINS_CREATEPOST;
 					
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
 					$this->create($parameters['data']['userID'], 'wcf.jcoins.statement.postadd.receive', $jcoins, $link, $title);
 				}
 				break;
