@@ -18,7 +18,7 @@ class JCoinsCreateThreadListener implements IEventListener {
 	 * @see	IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
-		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATETHREAD == 0 || WCF::getSession()->userID == 0)
+		if (!MODULE_JCOINS || WCF::getSession()->userID == 0)
 			return;
 
 		$return = $eventObj->getReturnValues();
@@ -27,9 +27,16 @@ class JCoinsCreateThreadListener implements IEventListener {
 		switch ($actionName) {
 			case 'create':
 				$thread = $return['returnValues'];
-
+				$board = $thread->getBoard();
+				
+				$jcoins = ($board->customJCoins) ? $board->customJCoinsCreateThread : JCOINS_RECEIVECOINS_CREATETHREAD;
+				
+				if ($jcoins == 0) {
+					return; // no jcoins :(
+				}
+				
 				if (!$thread->isDisabled) {
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', $jcoins, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 			
@@ -38,8 +45,15 @@ class JCoinsCreateThreadListener implements IEventListener {
 
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
-
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.delete', JCOINS_RECEIVECOINS_DELETETHREAD, $thread->getLink(), $thread->getTitle());
+					$board = $thread->getBoard(); 
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsTrashThread : JCOINS_RECEIVECOINS_DELETETHREAD;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.delete', $jcoins, $thread->getLink(), $thread->getTitle());
 				}
 				break; 
 			
@@ -48,8 +62,15 @@ class JCoinsCreateThreadListener implements IEventListener {
 
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
-
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.restore', -JCOINS_RECEIVECOINS_DELETETHREAD, $thread->getLink(), $thread->getTitle());
+					$board = $thread->getBoard();
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsTrashThread : JCOINS_RECEIVECOINS_DELETETHREAD;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.restore', -$jcoins, $thread->getLink(), $thread->getTitle());
 				}
 				break; 
 			
@@ -58,8 +79,15 @@ class JCoinsCreateThreadListener implements IEventListener {
 
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
-
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
+					$board = $thread->getBoard();
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreateThread : JCOINS_RECEIVECOINS_CREATETHREAD;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.receive', $jcoins, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 				
@@ -69,8 +97,15 @@ class JCoinsCreateThreadListener implements IEventListener {
 
 				foreach ($threadDatas as $threadID => $data) {
 					$thread = new Thread($threadID);
-
-					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.revoke', -JCOINS_RECEIVECOINS_CREATETHREAD, $thread->getLink(), $thread->getTitle());
+					$board = $thread->getBoard();
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreateThread : JCOINS_RECEIVECOINS_CREATETHREAD;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
+					$this->create($thread->userID, 'wcf.jcoins.statement.threadadd.revoke', -$jcoins, $thread->getLink(), $thread->getTitle());
 				}
 				break;
 		}

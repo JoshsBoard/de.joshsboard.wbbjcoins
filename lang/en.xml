@@ -4,17 +4,17 @@
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.jcoins.receivecoins.wbb"><![CDATA[Woltlab Burning Board]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[jCoins for new topics]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[How many jCoins shall the user get, if he starts a topic?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[JCoins for new topics]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[How many JCoins shall the user get, if he starts a topic?]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[jCoins for trashed topics]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[How many jCoins shall the user get, if someone trashs his topic?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[JCoins for trashed topics]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[How many JCoins shall the user get, if someone trashs his topic?]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins for postings]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many jCoins shall the user get, if he replies in a topic.]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[JCoins for postings]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[How many JCoins shall the user get, if he replies in a topic.]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_deletepost"><![CDATA[jCoins for trashed postings]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_deletepost.description"><![CDATA[How many jCoins shall the user get, if someone delete his posting.]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost"><![CDATA[JCoins for trashed postings]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost.description"><![CDATA[How many JCoins shall the user get, if someone delete his posting.]]></item>
 	</category>
     
 	<category name="wcf.jcoins">        
@@ -27,5 +27,18 @@
 		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[Someone has disabled your topic{if $title|isset} „{$title}“{/if}.]]></item>
 		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[Someone has restored your topic{if $title|isset} „{$title}“{/if}.]]></item>
 		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[Someone has trashed your topic{if $title|isset} „{$title}“{/if}.]]></item>
-    </category>
+	</category>
+	
+	<category name="wbb.acp.board">
+		<item name="wbb.acp.board.jcoins"><![CDATA[@TODO JCoins Foreneinstellungen]]></item>
+		<item name="wbb.acp.board.jcoins.custom"><![CDATA[@TODOForenspezifische JCoins Belohnung]]></item>
+		<item name="wbb.acp.board.jcoins.thread.customval"><![CDATA[@TODOJCoins für neues Thema]]></item>
+		<item name="wbb.acp.board.jcoins.thread.customval.description"><![CDATA[@TODOWie viele JCoins soll der Benutzer bekommen, wenn er einen neues Thema in diesem Forum erstellt?]]></item>
+		<item name="wbb.acp.board.jcoins.trashedthread.customval"><![CDATA[@TODOJCoins für gelöschte Themen]]></item>
+		<item name="wbb.acp.board.jcoins.trashedthread.customval.description"><![CDATA[@TODOWie viele JCoins soll der Benutzer bekommen, wenn sein Thema in diesem Forum gelöscht wird?]]></item>
+		<item name="wbb.acp.board.jcoins.post.customval"><![CDATA[@TODOJCoins für Antworten]]></item>
+		<item name="wbb.acp.board.jcoins.post.customval.description"><![CDATA[@TODOWie viele JCoins soll der Benutzer bekommen, wenn er auf ein Thema in diesem Forum antwortet?]]></item>
+		<item name="wbb.acp.board.jcoins.trashedpost.customval"><![CDATA[@TODOJCoins für gelöschte Antworten]]></item>
+		<item name="wbb.acp.board.jcoins.trashedpost.customval.description"><![CDATA[@TODOWie viele JCoins soll der Benutzer bekommen, wenn sein Beitrag in diesem Forum gelöscht wird?]]></item>
+	</category>
 </language>

@@ -33,12 +33,30 @@ class JCoinsCreatePostListener implements IEventListener {
 
 		switch ($actionName) {
 			case 'quickReply':
+				$thread = new \wbb\data\thread\Thread($parameters['objectID']); 
+				$board = $thread->getBoard(); 
+				
 			case 'create':
 				if (isset($parameters['isFirstPost'])) return;
-
                                 
 				if (!isset($parameters['data']['isDisabled'])) {
-					$this->create($parameters['data']['userID'], 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST);
+					if (!isset($board)) {
+						$post = $return['returnValues']; 
+						$thread = $post->getThread();
+						$board = $thread->getBoard(); 
+					}
+					
+					if (isset($post)) {
+						$link = $post->getLink(); 
+						$title = $post->getTitle(); 
+					} else {
+						$link = $thread->getLink(); 
+						$title = 'RE: '.$thread->getTitle(); 
+					}
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreatePost : JCOINS_RECEIVECOINS_CREATEPOST;
+					
+					$this->create($parameters['data']['userID'], 'wcf.jcoins.statement.postadd.receive', $jcoins, $link, $title);
 				}
 				break;
 				
@@ -48,9 +66,16 @@ class JCoinsCreatePostListener implements IEventListener {
 				foreach ($postDatas as $postID => $data) {
 					$post = new Post($postID);
 					$thread = $post->getThread();
-
+					$board = $thread->getBoard(); 
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreatePost : JCOINS_RECEIVECOINS_CREATEPOST;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', JCOINS_RECEIVECOINS_CREATEPOST, $post->getLink(), $post->getTitle());
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.receive', $jcoins, $post->getLink(), $post->getTitle());
 					}
 				}
 				break;
@@ -61,9 +86,16 @@ class JCoinsCreatePostListener implements IEventListener {
 				foreach ($postDatas as $postID => $data) {
 					$post = new Post($postID);
 					$thread = $post->getThread();
-
+					$board = $thread->getBoard(); 
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsCreatePost : JCOINS_RECEIVECOINS_CREATEPOST;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -JCOINS_RECEIVECOINS_CREATEPOST, $post->getLink(), $post->getTitle());
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.revoke', -$jcoins, $post->getLink(), $post->getTitle());
 					}
 				}
 				break;
@@ -74,9 +106,16 @@ class JCoinsCreatePostListener implements IEventListener {
 				foreach ($postDatas as $postID => $data) {
 					$post = new Post($postID);
 					$thread = $post->getThread();
-
+					$board = $thread->getBoard(); 
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsTrashPost : JCOINS_RECEIVECOINS_DELETEPOST;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.delete', JCOINS_RECEIVECOINS_DELETEPOST, $post->getLink(), $post->getTitle());
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.delete', $jcoins, $post->getLink(), $post->getTitle());
 					}
 				}
 				break; 
@@ -87,9 +126,16 @@ class JCoinsCreatePostListener implements IEventListener {
 				foreach ($postDatas as $postID => $data) {
 					$post = new Post($postID);
 					$thread = $post->getThread();
-
+					$board = $thread->getBoard(); 
+					
+					$jcoins = ($board->customJCoins) ? $board->customJCoinsTrashPost : JCOINS_RECEIVECOINS_DELETEPOST;
+				
+					if ($jcoins == 0) {
+						return; // no jcoins :(
+					}
+					
 					if ($post->postID != $thread->firstPostID) {
-						$this->create($post->userID, 'wcf.jcoins.statement.postadd.restore', JCOINS_RECEIVECOINS_DELETEPOST * -1, $post->getLink(), $post->getTitle());
+						$this->create($post->userID, 'wcf.jcoins.statement.postadd.restore', $jcoins * -1, $post->getLink(), $post->getTitle());
 					}
 				}
 				break; 

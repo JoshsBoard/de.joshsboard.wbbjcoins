@@ -4,17 +4,17 @@
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.jcoins.receivecoins.wbb"><![CDATA[Woltlab Burning Board]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[jCoins für neues Thema]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er einen neues Thema im Forum erstellt?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread"><![CDATA[JCoins für neues Thema]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createthread.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn er einen neues Thema im Forum erstellt?]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[jCoins für gelöschte Themen]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn sein Thema gelöscht wird?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread"><![CDATA[JCoins für gelöschte Themen]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletethread.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn sein Thema gelöscht wird?]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[jCoins für Antworten]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn er auf ein Thema antwortet?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost"><![CDATA[JCoins für Antworten]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_createpost.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn er auf ein Thema antwortet?]]></item>
 		
-		<item name="wcf.acp.option.jcoins_receivecoins_deletepost"><![CDATA[jCoins für gelöschte Antworten]]></item>
-		<item name="wcf.acp.option.jcoins_receivecoins_deletepost.description"><![CDATA[Wie viele jCoins soll der Benutzer bekommen, wenn sein Beitrag gelöscht wird?]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost"><![CDATA[JCoins für gelöschte Antworten]]></item>
+		<item name="wcf.acp.option.jcoins_receivecoins_deletepost.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn sein Beitrag gelöscht wird?]]></item>
 	</category>
     
 	<category name="wcf.jcoins">        
@@ -27,5 +27,18 @@
 		<item name="wcf.jcoins.statement.threadadd.revoke"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde deaktiviert.]]></item>
 		<item name="wcf.jcoins.statement.threadadd.restore"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde wiederhergestellt.]]></item>
 		<item name="wcf.jcoins.statement.threadadd.delete"><![CDATA[{if $title|isset}Das Thema „{$title}“{else}Ein Thema{/if} von Ihnen wurde gelöscht.]]></item>
-    </category>
+	</category>
+    
+	<category name="wbb.acp.board">
+		<item name="wbb.acp.board.jcoins"><![CDATA[JCoins Foreneinstellungen]]></item>
+		<item name="wbb.acp.board.jcoins.custom"><![CDATA[Forenspezifische JCoins Belohnung]]></item>
+		<item name="wbb.acp.board.jcoins.thread.customval"><![CDATA[JCoins für neues Thema]]></item>
+		<item name="wbb.acp.board.jcoins.thread.customval.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn er einen neues Thema in diesem Forum erstellt?]]></item>
+		<item name="wbb.acp.board.jcoins.trashedthread.customval"><![CDATA[JCoins für gelöschte Themen]]></item>
+		<item name="wbb.acp.board.jcoins.trashedthread.customval.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn sein Thema in diesem Forum gelöscht wird?]]></item>
+		<item name="wbb.acp.board.jcoins.post.customval"><![CDATA[JCoins für Antworten]]></item>
+		<item name="wbb.acp.board.jcoins.post.customval.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn er auf ein Thema in diesem Forum antwortet?]]></item>
+		<item name="wbb.acp.board.jcoins.trashedpost.customval"><![CDATA[JCoins für gelöschte Antworten]]></item>
+		<item name="wbb.acp.board.jcoins.trashedpost.customval.description"><![CDATA[Wie viele JCoins soll der Benutzer bekommen, wenn sein Beitrag in diesem Forum gelöscht wird?]]></item>
+	</category>
 </language>

@@ -13,5 +13,46 @@
 			<eventname>finalizeAction</eventname>
 			<listenerclassname>wbb\system\event\listener\JCoinsCreateThreadListener</listenerclassname>
 		</eventlistener>
+		
+		<!-- for custom jcoins board values -->
+		<eventlistener>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>readFormParameters</eventname>
+			<listenerclassname>wbb\system\event\listener\JCoinsBoardAddEditListener</listenerclassname>
+			<environment>admin</environment>
+			<inherit>1</inherit> <!-- for edit form :) -->
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>readParameters</eventname>
+			<listenerclassname>wbb\system\event\listener\JCoinsBoardAddEditListener</listenerclassname>
+			<environment>admin</environment>
+			<inherit>1</inherit> <!-- for edit form :) -->
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassname>wbb\system\event\listener\JCoinsBoardAddEditListener</listenerclassname>
+			<environment>admin</environment>
+			<inherit>1</inherit> <!-- for edit form :) -->
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>save</eventname>
+			<listenerclassname>wbb\system\event\listener\JCoinsBoardAddEditListener</listenerclassname>
+			<environment>admin</environment>
+			<inherit>1</inherit> <!-- for edit form :) -->
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassname>wbb\system\event\listener\JCoinsBoardAddEditListener</listenerclassname>
+			<environment>admin</environment>
+			<inherit>1</inherit> <!-- for edit form :) -->
+		</eventlistener>
 	</import>
 </data>
