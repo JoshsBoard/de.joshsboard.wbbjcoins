@@ -24,7 +24,7 @@ class JCoinsCreatePostListener implements IEventListener {
 	 * @see	IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
-		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0 || WCF::getSession()->userID == 0)
+		if (!MODULE_JCOINS || JCOINS_RECEIVECOINS_CREATEPOST == 0 || WCF::getUser()->userID == 0)
 			return;
 
 		$return = $eventObj->getReturnValues();
